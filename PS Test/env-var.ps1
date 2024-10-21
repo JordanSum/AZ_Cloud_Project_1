@@ -1,0 +1,6 @@
+$VMname = "test-vm"
+$RGname = "test-rg"
+$NSGname = "test-nsg"
+$KVSecretName = "test-key"
+$VMimage = "Ubuntu2204"
+$VMsize = "Standard_B1s"
