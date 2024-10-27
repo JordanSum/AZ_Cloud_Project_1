@@ -1,0 +1,1 @@
+sudo cat /var/log/cloud-init-output.log - You can use this command to view the cloud-init output log on the VM and check to see if the custom data script executed successfully.
