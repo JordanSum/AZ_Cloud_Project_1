@@ -1,29 +1,25 @@
-# Powershell Script and Terraform (release soon) For Azure Using Virtual Machine and Keyvault.
+# Powershell Script and Terraform For Azure Using Virtual Machine and Keyvault.
 
 This Powwershell and Terraform project is designed to create a comprehensive and secure Azure infrastructure. The infrastructure components include a Virtual Machine (VM), Virtual Network, Network Security Group (NSG) a pre-made KeyVault to store the public SSH key, and other related resources. The deliverable will be a secure connection using a RSA key pair and allowing only a certain public IP address to access the VM hosted in Azure.
 
 ## Table of Contents
 
-- [Project Overview](#project-Overview)
-
-- [Pre-Requisites](#pre-Requisites)
-
-- [Components](#components)
-
-  - [SSH-Keygen](#ssh-keygen)  
-
-  - [VM (Virtual Machine)](#VM-Virtual-Machine)
-
-  - [VNet and NSG (Virtual Network and Network Security Group)](#VNet-and-NSG-Virtual-Network-and-Network-Security-Group)
-
-  - [KeyVault](#KeyVault)
-
-- [Usage](#usage)
+- [Powershell Script and Terraform For Azure Using Virtual Machine and Keyvault.](#powershell-script-and-terraform-for-azure-using-virtual-machine-and-keyvault)
+  - [Table of Contents](#table-of-contents)
+  - [Project Overview](#project-overview)
+  - [Pre-Requisites](#pre-requisites)
+  - [Components](#components)
+    - [SSH-KeyGen](#ssh-keygen)
+    - [VM (Virtual Machine)](#vm-virtual-machine)
+    - [VNet (Virtual Network) w/ NSG (Network Security Group)](#vnet-virtual-network-w-nsg-network-security-group)
+    - [KeyVault](#keyvault)
+  - [Usage](#usage)
+  - [Please...](#please)
 
 
 ## Project Overview
 
-This project automates the deployment of an Azure infrastructure using Powershell and Terraform (Not Released). It covers the essential components needed to deploy and manage a secure and maintainable environment. The primary focus is on deploying a VM with KeyVault to allow a secure connection from the local host using SSH-Keygen.
+This project automates the deployment of an Azure infrastructure using Powershell and Terraform. It covers the essential components needed to deploy and manage a secure and maintainable environment. The primary focus is on deploying a VM with KeyVault to allow a secure connection from the local host using SSH-Keygen.
 
 > [!WARNING]  
 > This is a development project and should NOT be used for production. Please use best policy and security when deploying this project
@@ -87,5 +83,6 @@ To use this project, clone the repository and configure the Powershell and Terra
 > [!NOTE]  
 Make sure you are in either the PS or Terraform directory to provision one of the infrastructure resources.
 
+## Please...
 
-
+If any additional fixes or changes are found within this project, please pass them along respectfully.  I am always looking to advance my knowledge and apply best practices.
