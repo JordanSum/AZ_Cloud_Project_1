@@ -3,10 +3,16 @@ variable "subscription_id" {
   description = "value of the selected subscription id, create/look in the terraform.tfvars file"
 }
 
+variable "rg_name" {
+  type    = string
+  description = "Resource Group name"
+  default = "resource-group"
+}
+
 variable "vm_name" {
   type    = string
   description = "Name of the virtual machine:"
-  default = "default-vm"
+  default = "virtual-machine"
 }
 
 variable "username" {
@@ -18,7 +24,7 @@ variable "username" {
 variable "nsg_name" {
   type    = string
   description = "Network Security Group name"
-  default = "default-nsg"
+  default = "network-security-group"
 }
 
 variable "os_publisher" {
@@ -59,11 +65,11 @@ variable "location" {
 
 variable "public_ip" {
   type    = string
-  description = "Enter the public IP address of the machine you are connecting from:"
+  description = "The public IP address of the machine you are connecting from"
   sensitive = true
   }
 
-#ps1 script variables
+#Transferred from ps1 script variables
 
 variable "key_vault_name" {
   type    = string
@@ -78,10 +84,4 @@ variable "key_vault_rg" {
 variable "ssh_public_key_secret_name" {
   type    = string
   description = "value of the selected ssh public key secret name pulled from the env.ps1 file"
-}
-
-variable "rg_name" {
-  type    = string
-  description = "Resource Group name"
-  default = "default-rg"
 }

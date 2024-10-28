@@ -1,3 +1,5 @@
+Write-Host "Setup KeyVault SSH Key Pair and Secrets for Terraform Environment..."
+
 # Prompt the user to enter the password for the SSH key pair
 $securePassphrase = Read-Host "Enter a passphrase for the SSH key pair" -AsSecureString
 
@@ -45,7 +47,6 @@ $SelectedKeyVaultResourceGroup = $keyVaults[$selection].ResourceGroup
 Write-Host "Selected Key Vault: $KeyVaultName"
 
 $KVSecretName= Read-Host "Enter the name of the secret to store the public key in the Key Vault"
-$resourcegroup = Read-Host "Enter the name of the resource group of your envirornment"
 
 # Upload the public key to Azure Key Vault as a secret
 az keyvault secret set --vault-name $KeyVaultName --name $KVSecretName --value $PublicKey
@@ -54,8 +55,21 @@ az keyvault secret set --vault-name $KeyVaultName --name $KVSecretName --value $
 $env:TF_VAR_key_vault_name = $KeyVaultName
 $env:TF_VAR_key_vault_rg = $SelectedKeyVaultResourceGroup
 $env:TF_VAR_ssh_public_key_secret_name = $KVSecretName
-$env:TF_VAR_rg_name = $resourcegroup
 
+Write-Host "Terraform environment setup initiated..."
 
 # Apply Terraform configuration with auto-approve
+terraform init
 terraform apply -auto-approve
+
+#Prompt the user that virtual machines are restarting
+Write-Host "Restarting the following virtual machine above to apply new configuration..."
+
+# Retrieve the VM name and resource group from Terraform output
+$VMName = terraform output -raw vm_name
+$VMResourceGroup = terraform output -raw vm_resource_group
+
+# Restart the VM using Azure CLI
+az vm restart --name $VMName --resource-group $VMResourceGroup
+
+Write-Host "Environment setup complete. Virtual machine(s) have been restarted."
